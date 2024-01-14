@@ -9,13 +9,15 @@ interface ButtonBaseProps {
   >;
   variant?: 'primary' | 'success';
   callback: () => void;
+  isLoading?: boolean;
 }
 
 export default function ButtonBase({
   text,
   icon,
   variant = 'primary',
-  callback
+  callback,
+  isLoading = false
 }: ButtonBaseProps) {
   const { background, color } = buttonVariants[variant];
 
@@ -26,6 +28,7 @@ export default function ButtonBase({
       background={background}
       color={color}
       fontSize="0.95rem"
+      isLoading={isLoading}
     >
       {text}
     </Button>

@@ -3,6 +3,6 @@ import { Router } from 'express';
 
 const routes = Router();
 
-routes.use('/api/blog', blog);
+routes.use('/api', blog);
 
 export default routes;
