@@ -17,10 +17,8 @@ export default function Editor() {
     });
   };
 
-  console.log(blog);
-
   return (
-    <VStack w="80%" py="2rem">
+    <VStack w={['90%', '90%', '90%', '80%']} py="2rem">
       <Input
         type="type"
         placeholder="title"
