@@ -20,18 +20,20 @@ export default function BlogViewer({ isLoading, blogData }: BlogViewer) {
       padding={['0.7rem 1rem', '0.7rem 3rem']}
       spacing="2rem"
     >
-      <Skeleton isLoaded={!isLoading} w="100%" h="2.3rem">
-        <Heading as="h1" fontSize={['1.4rem', '2.5rem']} color="#222725">
-          {blogData?.title}
-        </Heading>
-      </Skeleton>
-      <SkeletonText
-        isLoaded={!isLoading}
-        w="100%"
-        noOfLines={6}
-        skeletonHeight="1.3rem"
-        mt="2rem"
-      />{' '}
+      {isLoading && (
+        <>
+          <Skeleton isLoaded={!isLoading} w="100%" h="2.3rem"></Skeleton>
+          <SkeletonText
+            w="100%"
+            noOfLines={6}
+            skeletonHeight="1.3rem"
+            mt="2rem"
+          />
+        </>
+      )}
+      <Heading as="h1" fontSize={['1.4rem', '2.5rem']} color="#222725">
+        {blogData?.title}
+      </Heading>
       <Text
         as="p"
         fontSize={['1rem', '1.15rem']}
