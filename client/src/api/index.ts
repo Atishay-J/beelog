@@ -40,3 +40,13 @@ export const fetchBlogs = async (page: number = 1, limit: number = 15) => {
     console.log('Error while fetching blogs', err);
   }
 };
+
+export const fetchBlogBySlug = async (slug: string) => {
+  try {
+    const response = await BlogClient.get(`/api/blog/${slug}`);
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.log('Error while fetching blog');
+  }
+};

@@ -14,7 +14,7 @@ export default function Navbar({ variant = 'CREATE' }: NavbarProps) {
       boxShadow="0px 0px 10px 2px rgba(230,230,230,0.4)"
       alignItems="center"
       justifyContent="center"
-      padding="0.7rem 3rem"
+      padding={['0.7rem 1rem', '0.7rem 3rem']}
     >
       <HStack
         w="100%"
@@ -24,7 +24,12 @@ export default function Navbar({ variant = 'CREATE' }: NavbarProps) {
       >
         <Link to="/">
           {' '}
-          <Image src="/assets/beelog.png" alt="Bee.log" w="6.5rem" h="auto" />
+          <Image
+            src="/assets/beelog.png"
+            alt="Bee.log"
+            w={['4.5rem', '6.5rem']}
+            h="auto"
+          />
         </Link>
         {variant === 'CREATE' ? <Buttons.CreateBlog /> : <Buttons.SaveBlog />}
       </HStack>

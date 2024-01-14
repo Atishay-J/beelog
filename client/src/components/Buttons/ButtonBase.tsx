@@ -27,7 +27,8 @@ export default function ButtonBase({
       leftIcon={icon}
       background={background}
       color={color}
-      fontSize="0.95rem"
+      fontSize={['0.85rem', '0.95rem']}
+      size={['sm', 'md']}
       isLoading={isLoading}
     >
       {text}

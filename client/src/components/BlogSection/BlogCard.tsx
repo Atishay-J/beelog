@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function BlogCard({ title, content, slug }: BlogResponseType) {
   const navigate = useNavigate();
   const navigateToBlog = () => {
-    navigate('/' + slug);
+    navigate('/blog/' + slug);
   };
   return (
     <VStack
@@ -22,7 +22,7 @@ export default function BlogCard({ title, content, slug }: BlogResponseType) {
         border: '1px solid #E4E6C3'
       }}
     >
-      <Heading as="h2" fontSize="1.5rem">
+      <Heading as="h2" fontSize="1.5rem" noOfLines={1}>
         {title}
       </Heading>
       <Text as="p" noOfLines={2}>
