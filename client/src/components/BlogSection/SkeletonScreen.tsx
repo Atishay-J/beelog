@@ -25,5 +25,5 @@ const SkeletonCard = () => {
 export default function SkeletonScreen() {
   return Array(6)
     .fill('_')
-    .map((item) => <SkeletonCard />);
+    .map(() => <SkeletonCard />);
 }
