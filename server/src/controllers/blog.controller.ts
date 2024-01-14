@@ -34,7 +34,9 @@ export const getBlogs = async (request: Request, response: Response) => {
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
-    response.send(blogs);
+    const totalDocuments = await Blog.countDocuments();
+    const hasMore = totalDocuments > skip + blogs.length;
+    response.send({ blogs, hasMore });
   } catch (err) {
     console.log('Error while fetching blogs', err);
     response.send(500);
