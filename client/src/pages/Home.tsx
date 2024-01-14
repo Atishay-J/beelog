@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 export default function Home() {
   return (
     <VStack>
-      <Navbar variant="SAVE" />
+      <Navbar variant="CREATE" />
     </VStack>
   );
 }
