@@ -1,6 +1,7 @@
 import { SimpleGrid } from '@chakra-ui/react';
 import BlogCard from './BlogCard';
 import { useBlogFeed } from '../../hooks/useBlogFeed';
+import SkeletonScreen from './SkeletonScreen';
 
 export default function BlogSection() {
   const { blogs, isLoading } = useBlogFeed();
@@ -20,6 +21,7 @@ export default function BlogSection() {
           slug={blog.slug}
         />
       ))}
+      {isLoading && <SkeletonScreen />}
     </SimpleGrid>
   );
 }
