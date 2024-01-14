@@ -1,5 +1,9 @@
 import { Router } from 'express';
-import { createBlog, getBlogs } from '../controllers/blog.controller';
+import {
+  createBlog,
+  getBlogBySlug,
+  getBlogs
+} from '../controllers/blog.controller';
 import { body } from 'express-validator';
 
 export const blog = Router();
@@ -12,3 +16,5 @@ blog.post(
 );
 
 blog.get('/blogs', getBlogs);
+
+blog.get('/blog/:slug', getBlogBySlug);

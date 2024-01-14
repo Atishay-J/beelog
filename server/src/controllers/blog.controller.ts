@@ -37,3 +37,14 @@ export const getBlogs = async (request: Request, response: Response) => {
     response.send(500);
   }
 };
+
+export const getBlogBySlug = async (request: Request, response: Response) => {
+  try {
+    const slug = request.params.slug;
+    const blog = await Blog.find({ slug });
+    response.send(blog);
+  } catch (err) {
+    console.log('Error while fetching blog by slug');
+    response.send(500);
+  }
+};
