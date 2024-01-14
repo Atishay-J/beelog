@@ -30,7 +30,10 @@ export const getBlogs = async (request: Request, response: Response) => {
     const limit = Number(request.query.limit) || 10;
 
     const skip = (page - 1) * limit;
-    const blogs = await Blog.find().skip(skip).limit(limit);
+    const blogs = await Blog.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
     response.send(blogs);
   } catch (err) {
     console.log('Error while fetching blogs', err);
