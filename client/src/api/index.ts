@@ -28,3 +28,15 @@ export const createBlog = async (payload: CreateBlogPayload) => {
     return false;
   }
 };
+
+export const fetchBlogs = async (page: number = 1, limit: number = 15) => {
+  try {
+    const response = await BlogClient.get(
+      `/api/blogs?page=${page}&limit=${limit}`
+    );
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.log('Error while fetching blogs', err);
+  }
+};
