@@ -23,3 +23,17 @@ export const createBlog = async (request: Request, response: Response) => {
     response.send(500);
   }
 };
+
+export const getBlogs = async (request: Request, response: Response) => {
+  try {
+    const page = Number(request.query.page) || 1;
+    const limit = Number(request.query.limit) || 10;
+
+    const skip = (page - 1) * limit;
+    const blogs = await Blog.find().skip(skip).limit(limit);
+    response.send(blogs);
+  } catch (err) {
+    console.log('Error while fetching blogs', err);
+    response.send(500);
+  }
+};
