@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Button, ButtonProps } from '@chakra-ui/react';
 import { buttonVariants } from './buttonVariants';
 
 interface ButtonBaseProps {
@@ -10,6 +10,7 @@ interface ButtonBaseProps {
   variant?: 'primary' | 'success';
   callback: () => void;
   isLoading?: boolean;
+  props?: ButtonProps;
 }
 
 export default function ButtonBase({
@@ -17,7 +18,8 @@ export default function ButtonBase({
   icon,
   variant = 'primary',
   callback,
-  isLoading = false
+  isLoading = false,
+  props
 }: ButtonBaseProps) {
   const { background, color } = buttonVariants[variant];
 
@@ -30,6 +32,10 @@ export default function ButtonBase({
       fontSize={['0.85rem', '0.95rem']}
       size={['sm', 'md']}
       isLoading={isLoading}
+      _hover={{
+        background: 'rgba(100,100,100)'
+      }}
+      {...props}
     >
       {text}
     </Button>
