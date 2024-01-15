@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { Blog } from '../models/blog.model';
 import { generateSlug } from '../utils';
+import { getCache, setCache } from '../cache';
 
 export const createBlog = async (request: Request, response: Response) => {
   try {
@@ -46,7 +47,13 @@ export const getBlogs = async (request: Request, response: Response) => {
 export const getBlogBySlug = async (request: Request, response: Response) => {
   try {
     const slug = request.params.slug;
+    const cachedBlog = await getCache(slug);
+    if (cachedBlog) {
+      console.log('Sending Cached data');
+      return response.send(JSON.parse(cachedBlog));
+    }
     const blog = await Blog.find({ slug });
+    await setCache(slug, JSON.stringify(blog));
     response.send(blog);
   } catch (err) {
     console.log('Error while fetching blog by slug');
