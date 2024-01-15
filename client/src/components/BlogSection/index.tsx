@@ -7,6 +7,7 @@ export default function BlogSection() {
   const { blogs, isLoading } = useBlogFeed();
   return (
     <SimpleGrid
+      minH="100vh"
       as="section"
       columns={[1, 2, 3]}
       w="100%"
