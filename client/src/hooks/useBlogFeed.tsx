@@ -29,8 +29,6 @@ export const useBlogFeed = () => {
   };
   const debouncedHandleScroll = debounce(handleScroll, 80);
 
-  console.log({ blogPageNumber });
-
   useEffect(() => {
     window.addEventListener('scroll', debouncedHandleScroll);
     if (!hasMoreData) {

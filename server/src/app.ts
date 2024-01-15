@@ -20,9 +20,9 @@ const PORT = process.env.PORT || 8000;
 app.use('/', routes);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello Beelog!');
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Beelog server listening on port ${PORT}`);
 });
