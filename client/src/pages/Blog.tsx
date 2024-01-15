@@ -15,7 +15,6 @@ export default function Blog() {
     try {
       if (slug) {
         const [data] = await fetchBlogBySlug(slug);
-        console.log('Here', data);
         setBlogData(data);
         setIsLoading(false);
       }
