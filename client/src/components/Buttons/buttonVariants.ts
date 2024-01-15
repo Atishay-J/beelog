@@ -4,7 +4,7 @@ export const buttonVariants = {
     color: '#f7f7f2'
   },
   success: {
-    background: '#899878',
+    background: '#798e61',
     color: '#f7f7f2'
   }
 };

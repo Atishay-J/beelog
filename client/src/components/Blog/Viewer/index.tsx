@@ -41,7 +41,7 @@ export default function BlogViewer({ isLoading, blogData }: BlogViewer) {
         fontWeight="medium"
         letterSpacing="1.3px"
         w="100%"
-        textAlign="justify"
+        textAlign="left"
         whiteSpace="pre-wrap"
         dangerouslySetInnerHTML={{ __html: blogData?.content ?? '' }}
       />

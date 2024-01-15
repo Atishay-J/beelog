@@ -57,6 +57,9 @@ export default function SaveBlog() {
       text="Save Blog"
       variant="success"
       isLoading={isSubmitting}
+      props={{
+        boxShadow: '1px 1px 0px 0px rgba(30,30,30,0.2)'
+      }}
     />
   );
 }

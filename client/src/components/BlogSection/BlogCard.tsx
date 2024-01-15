@@ -21,6 +21,7 @@ export default function BlogCard({ title, content, slug }: BlogResponseType) {
         boxShadow: '8px  8px  0px 0px rgba(150,150,150,1)',
         border: '1px solid #E4E6C3'
       }}
+      overflow="hidden"
     >
       <Heading as="h2" fontSize="1.5rem" noOfLines={1}>
         {title}
